@@ -9,18 +9,19 @@ jobs:
   video_preprocessing:
     name: Video Preprocessing
     runs-on: ubuntu-latest
-    timeout-minutes: 780
+    timeout-minutes: 10
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Video Preprocessing Step
         run: |
           # Add video preprocessing commands here
+          sleep 60
 
   eye_tracking:
     name: Eye Tracking Module
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 15
     needs: video_preprocessing
     steps:
       - name: Checkout code
@@ -28,11 +29,12 @@ jobs:
       - name: Eye Tracking Step
         run: |
           # Add eye tracking module commands here
+          sleep 60
 
   aggregation:
     name: Aggregation Module
     runs-on: ubuntu-latest
-    timeout-minutes: 500
+    timeout-minutes: 20
     needs: eye_tracking
     steps:
       - name: Checkout code
@@ -40,11 +42,12 @@ jobs:
       - name: Aggregation Step
         run: |
           # Add aggregation module commands here
+          sleep 120
 
   heatmap_analysis:
     name: Heatmap Analysis
     runs-on: ubuntu-latest
-    timeout-minutes: 330
+    timeout-minutes: 25
     needs: aggregation
     steps:
       - name: Checkout code
@@ -52,11 +55,12 @@ jobs:
       - name: Heatmap Analysis Step
         run: |
           # Add heatmap analysis commands here
+          sleep 60
 
   insight_visualization:
     name: Insight and Visualization Generation
     runs-on: ubuntu-latest
-    timeout-minutes: 2140
+    timeout-minutes: 30
     needs: heatmap_analysis
     steps:
       - name: Checkout code
@@ -64,3 +68,4 @@ jobs:
       - name: Insight and Visualization Step
         run: |
           # Add insight and visualization generation commands here
+          sleep 200
