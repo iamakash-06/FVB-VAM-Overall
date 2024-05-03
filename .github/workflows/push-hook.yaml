@@ -1,0 +1,66 @@
+name: Video Processing Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  video_preprocessing:
+    name: Video Preprocessing
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Video Preprocessing Step
+        run: |
+          # Add video preprocessing commands here
+
+  eye_tracking:
+    name: Eye Tracking Module
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: video_preprocessing
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Eye Tracking Step
+        run: |
+          # Add eye tracking module commands here
+
+  aggregation:
+    name: Aggregation Module
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: eye_tracking
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Aggregation Step
+        run: |
+          # Add aggregation module commands here
+
+  heatmap_analysis:
+    name: Heatmap Analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: aggregation
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Heatmap Analysis Step
+        run: |
+          # Add heatmap analysis commands here
+
+  insight_visualization:
+    name: Insight and Visualization Generation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: heatmap_analysis
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Insight and Visualization Step
+        run: |
+          # Add insight and visualization generation commands here
