@@ -16,7 +16,7 @@ jobs:
       - name: Video Preprocessing Step
         run: |
           # Add video preprocessing commands here
-          sleep 60
+          sleep 40
 
   eye_tracking:
     name: Eye Tracking Module
@@ -42,7 +42,7 @@ jobs:
       - name: Aggregation Step
         run: |
           # Add aggregation module commands here
-          sleep 120
+          sleep 40
 
   heatmap_analysis:
     name: Heatmap Analysis
@@ -68,4 +68,4 @@ jobs:
       - name: Insight and Visualization Step
         run: |
           # Add insight and visualization generation commands here
-          sleep 200
+          sleep 80
