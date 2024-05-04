@@ -54,6 +54,7 @@ frequency_df = frequency_df[frequency_df['Frequency'] >= threshold]
 
 colors = frequency_df['Frequency']
 
+
 plt.figure(figsize=(10, 6))
 plt.scatter(frequency_df['Center X'], frequency_df['Center Y'], s=frequency_df['Frequency']*10, c=colors, cmap='cool', alpha=0.8)
 plt.xlabel('Center X')
